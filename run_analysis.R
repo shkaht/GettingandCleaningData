@@ -4,24 +4,24 @@ library(dplyr)
 Url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
 ## download the zip folder
-#download.file(Url, destfile = "./ucihar.zip")
+download.file(Url, destfile = "./ucihar.zip")
 
 ## unzip the folder
-#unzip("ucihar.zip")
+unzip("ucihar.zip")
 
 ## load the training data including subject and activity label objects
-#subject_train <- tbl_df(read.table("./UCI HAR Dataset/train/subject_train.txt"))
-#X_train <- tbl_df(read.table("./UCI HAR Dataset/train/X_train.txt"))
-#y_train <- tbl_df(read.table("./UCI HAR Dataset/train/y_train.txt"))
+subject_train <- tbl_df(read.table("./UCI HAR Dataset/train/subject_train.txt"))
+X_train <- tbl_df(read.table("./UCI HAR Dataset/train/X_train.txt"))
+y_train <- tbl_df(read.table("./UCI HAR Dataset/train/y_train.txt"))
 
 ## load the test data including subject and activity label objects
-#subject_test <- tbl_df(read.table("./UCI HAR Dataset/test/subject_test.txt"))
-#X_test <- tbl_df(read.table("./UCI HAR Dataset/test/X_test.txt"))
-#y_test <- tbl_df(read.table("./UCI HAR Dataset/test/y_test.txt"))
+subject_test <- tbl_df(read.table("./UCI HAR Dataset/test/subject_test.txt"))
+X_test <- tbl_df(read.table("./UCI HAR Dataset/test/X_test.txt"))
+y_test <- tbl_df(read.table("./UCI HAR Dataset/test/y_test.txt"))
 
 ## load the activity labels and features as data tables
-#activity_labels <- tbl_df(read.table("./UCI HAR Dataset/activity_labels.txt", stringsAsFactors = FALSE))
-#features <- tbl_df(read.table("./UCI HAR Dataset/features.txt", stringsAsFactors = FALSE))
+activity_labels <- tbl_df(read.table("./UCI HAR Dataset/activity_labels.txt", stringsAsFactors = FALSE))
+features <- tbl_df(read.table("./UCI HAR Dataset/features.txt", stringsAsFactors = FALSE))
 
 ## add the training and test subject identifiers together 
 subjectBind <- bind_rows(subject_train, subject_test)
